@@ -1,0 +1,27 @@
+import 'package:aplikasi_get/controllers/home_controller.dart';
+import 'package:aplikasi_get/shared/global_widget/resep_card.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class ContentHome extends GetView<HomeController> {
+  const ContentHome({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 24),
+      child: Obx(() => !controller.isLoading.value
+          ? ListView.builder(
+              primary: false,
+              shrinkWrap: true,
+              itemCount: controller.newRecipe.length,
+              itemBuilder: (context, index) {
+                return ResepCard(controller.newRecipe[index]);
+              },
+            )
+          : const Center(
+              child: CircularProgressIndicator(),
+            )),
+    );
+  }
+}
