@@ -1,28 +1,25 @@
 class RecipeModel {
-  final String id;
+  final String key;
   final String title;
   final String time;
   final String servings;
   final String difficulty;
-  final String recipe;
-  final List<String> images;
+  final String images;
 
   RecipeModel(
-      {this.id = '',
+      {this.key = '',
       this.title = '',
       this.time = '',
       this.servings = '',
       this.difficulty = '',
-      this.recipe = '',
-      this.images = const ['']});
+      this.images = ''});
 
   factory RecipeModel.fromJson(json) => RecipeModel(
-        id: json['id'],
+        key: json['key'],
         title: json['title'],
-        time: json['time'],
-        servings: json['servings'],
-        difficulty: json['difficulty'],
-        recipe: json['recipe'],
-        images: json['images'].cast<String>(),
+        time: json['times'],
+        servings: json['portion'] ?? json['serving'],
+        difficulty: json['dificulty'] ?? json['difficulty'],
+        images: json['thumb'],
       );
 }

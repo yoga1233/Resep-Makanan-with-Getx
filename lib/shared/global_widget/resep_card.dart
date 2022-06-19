@@ -27,7 +27,7 @@ class ResepCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
         image: DecorationImage(
-            image: NetworkImage(recipe.images[0]), fit: BoxFit.cover),
+            image: NetworkImage(recipe.images), fit: BoxFit.cover),
       ),
       child: Stack(
         children: [
@@ -83,7 +83,7 @@ class ResepCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  parsingText(recipe.id),
+                  parsingText(recipe.key),
                   style: whiteTextStyle.copyWith(
                     fontSize: 18.sp,
                     fontWeight: semiBold,
