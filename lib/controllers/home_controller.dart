@@ -5,10 +5,14 @@ import 'package:get/state_manager.dart';
 class HomeController extends GetxController {
   RxList<RecipeModel> newRecipe = <RecipeModel>[].obs;
 
+  RxString query = ''.obs;
+
   RxBool isLoading = false.obs;
   RxInt indexPage = 1.obs;
 
   RxBool isFav = false.obs;
+
+  addQuery(String queryKey) => query.value = queryKey;
 
   void isFavorite() {
     isFav.toggle();

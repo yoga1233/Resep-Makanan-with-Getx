@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:aplikasi_get/model/detai_recipel_model.dart';
 import 'package:aplikasi_get/model/recipe_model.dart';
 import 'package:dio/dio.dart';
 
@@ -53,6 +52,22 @@ class ApiService {
       return <RecipeModel>[];
     } catch (e) {
       throw Exception(e.toString());
+    }
+  }
+
+  Future<DetailRecipeModel> getDetailRecipe(String query) async {
+    String url = '${baseUrl}api/recipe/$query';
+    try {
+      var result = await Dio().get(url);
+
+      if (result.statusCode == 200) {
+        var data = result.data;
+        DetailRecipeModel detailRecipe = DetailRecipeModel.fromJson(data);
+        return detailRecipe;
+      }
+      return DetailRecipeModel();
+    } catch (e) {
+      rethrow;
     }
   }
 }

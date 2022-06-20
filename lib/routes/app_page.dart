@@ -1,4 +1,6 @@
+import 'package:aplikasi_get/binding/detail_binding.dart';
 import 'package:aplikasi_get/binding/home_binding.dart';
+import 'package:aplikasi_get/ui/detail_page/detail_page.dart';
 import 'package:aplikasi_get/ui/home/page_home.dart';
 import 'package:aplikasi_get/ui/main_page/main_page.dart';
 import 'package:aplikasi_get/ui/splash_page/page_splash.dart';
@@ -14,6 +16,10 @@ class AppPage {
     GetPage(
         name: '/main-page',
         page: () => const MainPage(),
-        binding: HomeBinding())
+        binding: HomeBinding()),
+    GetPage(
+        name: '/detail',
+        page: () => const DetailPage(),
+        binding: DetailBinding())
   ];
 }
