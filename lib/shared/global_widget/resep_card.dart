@@ -90,7 +90,7 @@ class ResepCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    parsingText(recipe.key),
+                    changeToSenteceCase(recipe.key),
                     style: whiteTextStyle.copyWith(
                       fontSize: 18.sp,
                       fontWeight: semiBold,

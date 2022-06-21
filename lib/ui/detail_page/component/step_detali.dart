@@ -1,10 +1,10 @@
 import 'package:aplikasi_get/controllers/detail_controller.dart';
-import 'package:aplikasi_get/shared/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../shared/theme_text.dart';
+import '../../../utils/helper.dart';
 
 class StepDetail extends StatelessWidget {
   const StepDetail({Key? key}) : super(key: key);

@@ -1,4 +1,5 @@
 import 'package:aplikasi_get/controllers/detail_controller.dart';
+import 'package:aplikasi_get/controllers/fav_controller.dart';
 import 'package:aplikasi_get/shared/theme_colors.dart';
 import 'package:aplikasi_get/ui/detail_page/component/komposisi_detail.dart';
 import 'package:aplikasi_get/ui/detail_page/component/step_detali.dart';
@@ -13,6 +14,7 @@ class DetailPage extends GetView<DetailController> {
 
   @override
   Widget build(BuildContext context) {
+    FavController c = Get.put(FavController());
     return Scaffold(
         backgroundColor: whiteColor,
         body: Obx(
@@ -40,6 +42,17 @@ class DetailPage extends GetView<DetailController> {
                                   height: 24.h,
                                 ),
                               ),
+                              IconButton(
+                                  onPressed: () {
+                                    c.addToFav();
+                                  },
+                                  icon: Icon(
+                                    controller.isFav()
+                                        ? Icons.favorite_outline
+                                        : Icons.favorite,
+                                    color: greyColor,
+                                    size: 24,
+                                  ))
                             ],
                           ),
                           SizedBox(
