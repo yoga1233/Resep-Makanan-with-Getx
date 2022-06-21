@@ -14,7 +14,9 @@ class DetailPage extends GetView<DetailController> {
 
   @override
   Widget build(BuildContext context) {
-    FavController c = Get.put(FavController());
+    Get.put(DetailController());
+    Get.put(FavController());
+    FavController c = Get.find();
     return Scaffold(
         backgroundColor: whiteColor,
         body: Obx(
@@ -47,10 +49,12 @@ class DetailPage extends GetView<DetailController> {
                                     c.addToFav();
                                   },
                                   icon: Icon(
-                                    controller.isFav()
+                                    c.isFav()
                                         ? Icons.favorite_outline
                                         : Icons.favorite,
-                                    color: greyColor,
+                                    color: c.isFav()
+                                        ? greyColor
+                                        : Colors.redAccent,
                                     size: 24,
                                   ))
                             ],

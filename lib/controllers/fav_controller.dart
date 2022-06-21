@@ -1,4 +1,3 @@
-import 'package:aplikasi_get/controllers/detail_controller.dart';
 import 'package:aplikasi_get/controllers/home_controller.dart';
 import 'package:aplikasi_get/model/fav_model.dart';
 import 'package:get/get.dart';
@@ -6,10 +5,25 @@ import 'package:get_storage/get_storage.dart';
 
 class FavController extends GetxController {
   HomeController h = Get.find();
-  DetailController d = Get.put(DetailController());
   RxList<FavModel> fav = <FavModel>[].obs;
 
   final box = GetStorage();
+  bool isFav() {
+    var contain = fav.where((element) => element.key == h.query.value);
+    if (contain.isEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  bool checkFav() {
+    if (fav.isEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   addToFav() {
     var contain = fav.where((element) => element.key == h.query.value);
@@ -17,10 +31,9 @@ class FavController extends GetxController {
       fav.add(
         FavModel(
           key: h.query.value,
-          imageUrl: d.recipe.value.results!.thumb,
+          imageUrl: '',
         ),
       );
-      print('berhasil menambahkan ke favorit');
     } else {
       fav.removeWhere((element) => element.key == h.query.value);
     }
@@ -40,9 +53,9 @@ class FavController extends GetxController {
   //   fav.value = box.read('favorite') ?? <FavModel>[];
   // }
 
-  @override
-  void onInit() {
-    // getFav();
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   // getFav();
+  //   super.onInit();
+  // }
 }

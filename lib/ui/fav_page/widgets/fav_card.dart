@@ -1,4 +1,5 @@
 import 'package:aplikasi_get/controllers/fav_controller.dart';
+import 'package:aplikasi_get/controllers/home_controller.dart';
 import 'package:aplikasi_get/shared/theme_colors.dart';
 import 'package:aplikasi_get/shared/theme_text.dart';
 import 'package:aplikasi_get/utils/helper.dart';
@@ -12,36 +13,43 @@ class FavCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FavController c = Get.find();
-    return Container(
-      margin: const EdgeInsets.only(
-        bottom: 18,
-      ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 15,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: lightGreenColor,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Flexible(
-            child: Text(
-              changeToSenteceCase(tittle),
-              style: blackTextStyle,
+    HomeController h = Get.find();
+    return InkWell(
+      onTap: () {
+        h.addQuery(tittle);
+        Get.toNamed('/detail');
+      },
+      child: Container(
+        margin: const EdgeInsets.only(
+          bottom: 18,
+        ),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 15,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: lightGreenColor,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              child: Text(
+                changeToSenteceCase(tittle),
+                style: blackTextStyle,
+              ),
             ),
-          ),
-          IconButton(
-              onPressed: () {
-                c.removeFromFav(tittle);
-              },
-              icon: const Icon(
-                Icons.remove,
-                color: Colors.redAccent,
-              ))
-        ],
+            IconButton(
+                onPressed: () {
+                  c.removeFromFav(tittle);
+                },
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.redAccent,
+                ))
+          ],
+        ),
       ),
     );
   }

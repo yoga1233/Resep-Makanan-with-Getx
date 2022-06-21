@@ -13,6 +13,8 @@ class MainPage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(HomeController());
+
     Widget buildContent(int currentIndex) {
       switch (currentIndex) {
         case 1:
