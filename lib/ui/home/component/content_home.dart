@@ -12,8 +12,8 @@ class ContentHome extends GetView<HomeController> {
       margin: const EdgeInsets.symmetric(horizontal: 24),
       child: Obx(() => !controller.isLoading.value
           ? ListView.builder(
+              physics: const BouncingScrollPhysics(),
               primary: false,
-              shrinkWrap: true,
               itemCount: controller.newRecipe.length,
               itemBuilder: (context, index) {
                 return ResepCard(controller.newRecipe[index]);

@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final detailRecipeModel = detailRecipeModelFromJson(jsonString);
-
 import 'dart:convert';
 
 DetailRecipeModel detailRecipeModelFromJson(String str) =>

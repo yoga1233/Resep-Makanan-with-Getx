@@ -71,14 +71,15 @@ class ResepCard extends StatelessWidget {
                 width: 1.sw,
                 height: 217.h,
                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
                     gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    blackColor,
-                    Colors.transparent,
-                  ],
-                )),
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: [
+                        blackColor,
+                        Colors.transparent,
+                      ],
+                    )),
               ),
             ),
             Padding(

@@ -15,20 +15,14 @@ class PageHome extends GetView<HomeController> {
     return Scaffold(
         backgroundColor: lightWithColor,
         body: SafeArea(
-          child: SingleChildScrollView(
-            // physics: const NeverScrollableScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                HeaderHome(),
-                SearchHome(),
-                CategoriHome(),
-                ContentHome(),
-                SizedBox(
-                  height: 30,
-                )
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              HeaderHome(),
+              SearchHome(),
+              // CategoriHome(),
+              Expanded(child: ContentHome()),
+            ],
           ),
         ));
   }

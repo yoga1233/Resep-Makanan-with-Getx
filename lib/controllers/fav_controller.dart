@@ -1,13 +1,10 @@
 import 'package:aplikasi_get/controllers/home_controller.dart';
 import 'package:aplikasi_get/model/fav_model.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 class FavController extends GetxController {
   HomeController h = Get.find();
   RxList<FavModel> fav = <FavModel>[].obs;
-
-  final box = GetStorage();
   bool isFav() {
     var contain = fav.where((element) => element.key == h.query.value);
     if (contain.isEmpty) {
