@@ -21,7 +21,7 @@ class FavPage extends GetView<FavController> {
                       return FavCard(c.fav[index].key.toString());
                     },
                   )
-                : Text('Belum ada Resep Favorit'),
+                : const Text('Belum ada Resep Favorit'),
           ),
         ),
       ),

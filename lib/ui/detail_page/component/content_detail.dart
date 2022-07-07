@@ -11,6 +11,7 @@ class ContentDetali extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const BouncingScrollPhysics(),
       children: [
         const ImageDetail(),
         SizedBox(
