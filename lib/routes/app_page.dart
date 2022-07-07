@@ -21,6 +21,7 @@ class AppPage {
     GetPage(
       name: '/main-page',
       page: () => const MainPage(),
+      binding: FavBinding(),
     ),
     GetPage(
       name: '/detail',
