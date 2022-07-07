@@ -1,5 +1,4 @@
 import 'package:aplikasi_get/controllers/detail_controller.dart';
-import 'package:aplikasi_get/controllers/fav_controller.dart';
 import 'package:aplikasi_get/shared/theme_colors.dart';
 import 'package:aplikasi_get/ui/detail_page/component/app_bar_detail.dart';
 import 'package:aplikasi_get/ui/detail_page/component/content_detail.dart';
@@ -14,9 +13,6 @@ class DetailPage extends GetView<DetailController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(DetailController());
-    Get.put(FavController());
-
     return Scaffold(
         backgroundColor: whiteColor,
         body: Obx(

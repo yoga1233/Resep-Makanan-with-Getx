@@ -10,7 +10,7 @@ class AppBarDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FavController c = Get.find();
+    FavController c = Get.put(FavController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

@@ -6,6 +6,8 @@ import 'package:aplikasi_get/ui/main_page/main_page.dart';
 import 'package:aplikasi_get/ui/splash_page/page_splash.dart';
 import 'package:get/get.dart';
 
+import '../binding/detail_binding.dart';
+
 class AppPage {
   static final pages = [
     GetPage(
@@ -23,7 +25,7 @@ class AppPage {
     GetPage(
       name: '/detail',
       page: () => const DetailPage(),
-      // binding: DetailBinding(),
+      binding: DetailBinding(),
     ),
     GetPage(name: '/fav', page: () => const FavPage(), binding: FavBinding())
   ];
