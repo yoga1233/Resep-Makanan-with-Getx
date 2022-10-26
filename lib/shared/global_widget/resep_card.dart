@@ -1,4 +1,5 @@
 // import 'package:aplikasi_get/controllers/home_controller.dart';
+import 'package:aplikasi_get/controllers/fav_controller.dart';
 import 'package:aplikasi_get/controllers/home_controller.dart';
 import 'package:aplikasi_get/shared/theme_colors.dart';
 import 'package:aplikasi_get/shared/theme_text.dart';
@@ -20,10 +21,11 @@ class ResepCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController c = Get.find();
+    FavController f = Get.find();
     return InkWell(
       onTap: () {
         c.addQuery(recipe.key);
-        Get.toNamed('/detail');
+        Get.toNamed('/detail', arguments: recipe.key);
       },
       child: Container(
         margin: const EdgeInsets.only(
@@ -38,33 +40,33 @@ class ResepCard extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            // Positioned(
-            //   right: 24,
-            //   top: 24,
-            //   child: Container(
-            //     width: 50.w,
-            //     height: 50.h,
-            //     padding: const EdgeInsets.symmetric(
-            //       vertical: 13,
-            //       horizontal: 13,
-            //     ),
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(10),
-            //       color: brownColor,
-            //     ),
-            //     child: InkWell(
-            //       onTap: () {
-            //         c.isFavorite();
-            //       },
-            //       child: Obx(() => Image.asset(
-            //             c.isFav.value
-            //                 ? 'assets/icon_fav.png'
-            //                 : 'assets/icon_fav_selected.png',
-            //             color: whiteColor,
-            //           )),
-            //     ),
-            //   ),
-            // ),
+            Positioned(
+              right: 24,
+              top: 24,
+              child: Container(
+                width: 50.w,
+                height: 50.h,
+                padding: const EdgeInsets.symmetric(
+                  vertical: 13,
+                  horizontal: 13,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: brownColor,
+                ),
+                child: InkWell(
+                  onTap: () {
+                    f.addFavHome(recipe.key);
+                  },
+                  child: Obx(() => Image.asset(
+                        f.containFav(recipe.key)
+                            ? 'assets/icon_fav.png'
+                            : 'assets/icon_fav_selected.png',
+                        color: whiteColor,
+                      )),
+                ),
+              ),
+            ),
             Positioned(
               bottom: 0,
               child: Container(

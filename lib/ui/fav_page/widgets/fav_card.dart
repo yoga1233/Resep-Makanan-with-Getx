@@ -17,7 +17,7 @@ class FavCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         h.addQuery(tittle);
-        Get.toNamed('/detail');
+        Get.toNamed('/detail', arguments: tittle);
       },
       child: Container(
         margin: const EdgeInsets.only(

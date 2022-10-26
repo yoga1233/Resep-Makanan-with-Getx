@@ -14,6 +14,29 @@ class FavController extends GetxController {
     }
   }
 
+  bool containFav(String key) {
+    var contain = fav.where((element) => element.key == key);
+    if (contain.isEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  addFavHome(String key) {
+    var contain = fav.where((element) => element.key == key);
+    if (contain.isEmpty) {
+      fav.add(
+        FavModel(
+          key: key,
+          imageUrl: '',
+        ),
+      );
+    } else {
+      fav.removeWhere((element) => element.key == key);
+    }
+  }
+
   bool checkFav() {
     if (fav.isEmpty) {
       return true;

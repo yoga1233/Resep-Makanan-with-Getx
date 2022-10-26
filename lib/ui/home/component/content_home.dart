@@ -9,19 +9,27 @@ class ContentHome extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 24),
-      child: Obx(() => !controller.isLoading.value
-          ? ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              primary: false,
-              itemCount: controller.newRecipe.length,
-              itemBuilder: (context, index) {
-                return ResepCard(controller.newRecipe[index]);
-              },
-            )
-          : const Center(
-              child: CircularProgressIndicator(),
-            )),
-    );
+        margin: const EdgeInsets.symmetric(horizontal: 24),
+        child: Obx(() => !controller.isLoading.value
+            ? controller.newRecipe.isNotEmpty
+                ? ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    primary: false,
+                    itemCount: controller.newRecipe.length,
+                    itemBuilder: (context, index) {
+                      return ResepCard(controller.newRecipe[index]);
+                    },
+                  )
+                : const Center(
+                    child: Text(
+                      "Makanan tidak di temukan",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  )
+            : const Center(
+                child: CircularProgressIndicator(),
+              )));
   }
 }

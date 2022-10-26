@@ -13,6 +13,7 @@ class DetailPage extends GetView<DetailController> {
 
   @override
   Widget build(BuildContext context) {
+    var data = Get.arguments;
     return Scaffold(
         backgroundColor: whiteColor,
         body: Obx(
@@ -26,7 +27,7 @@ class DetailPage extends GetView<DetailController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const AppBarDetail(),
+                        AppBarDetail(tittle: data),
                         SizedBox(
                           height: 40.h,
                         ),
